@@ -8,7 +8,8 @@ LABEL com.github.containers.toolbox="true" \
       usage="This image is meant to be used with the toolbox(1) command" \
       summary="Customized toolbox"
 
-RUN dnf --assumeyes install\
+RUN --mount=type=bind,source=hdonnay-cyrus-sasl-xoauth2-fedora.repo,destination=/etc/yum.repos.d/hdonnay-cyrus-sasl-xoauth2-fedora.repo dnf\
+	--assumeyes install\
 	antiword\
 	aria2\
 	cyrus-sasl-xoauth2\
