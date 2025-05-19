@@ -1,0 +1,42 @@
+FROM registry.fedoraproject.org/fedora-toolbox:42
+
+ARG NAME=hdonnay-toolbox
+ARG VERSION=42
+LABEL com.github.containers.toolbox="true" \
+      name="$NAME" \
+      version="$VERSION" \
+      usage="This image is meant to be used with the toolbox(1) command" \
+      summary="Customized toolbox"
+
+RUN dnf --assumeyes install\
+	antiword\
+	aria2\
+	cyrus-sasl-xoauth2\
+	flatpak-spawn\
+	fontconfig\
+	git\
+	git-credential-libsecret\
+	glibc-langpack-en\
+	glibc-locale-source\
+	htop\
+	imapfilter\
+	isync\
+	jq\
+	krb5-workstation\
+	lastpass-cli\
+	lbdb\
+	libsecret\
+	msmtp\
+	mutt\
+	myrepos\
+	neovim\
+	newsboat\
+	notmuch\
+	parallel\
+	poppler-utils\
+	rsync\
+	w3m\
+	weechat\
+	zsh\
+	&&\
+	dnf clean all
